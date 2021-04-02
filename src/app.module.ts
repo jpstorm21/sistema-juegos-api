@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 
 // Entities
-import { Users } from './entities/users.entity';
+import { Users, Roles } from './entities';
 
 import * as dotenv from 'dotenv';
 
@@ -27,12 +27,12 @@ dotenv.config();
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
-      entities: [Users],
+      entities: [Users, Roles],
       synchronize: true,
       retryDelay: 3000,
       retryAttempts: 10,
       keepConnectionAlive: true
     })
-  ],
+  ]
 })
 export class AppModule {}

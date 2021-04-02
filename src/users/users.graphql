@@ -5,4 +5,11 @@ type Query {
 type User {
     id: ID!
     name: String
+    email: String
+    passwordHash: String
+    passwordSalt: String
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+    role: Role
 }

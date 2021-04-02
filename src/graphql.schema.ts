@@ -7,6 +7,11 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export class Role {
+    id: string;
+    name?: string;
+}
+
 export abstract class IQuery {
     abstract getUsers(): User[] | Promise<User[]>;
 }
@@ -14,4 +19,11 @@ export abstract class IQuery {
 export class User {
     id: string;
     name?: string;
+    email?: string;
+    passwordHash?: string;
+    passwordSalt?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
+    role?: Role;
 }
