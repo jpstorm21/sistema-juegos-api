@@ -22,8 +22,8 @@ export class User {
     email?: string;
     passwordHash?: string;
     passwordSalt?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    deletedAt?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+    deletedAt?: Date;
     role?: Role;
 }

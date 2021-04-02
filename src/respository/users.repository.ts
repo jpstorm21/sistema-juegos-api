@@ -7,7 +7,7 @@ import { Users } from '../entities/users.entity';
 export class UsersRepository extends Repository<Users> {
     public async getUsers(): Promise<any[]> {
         try {
-            return this.find({ relations: ["role"] });   
+            return this.find({ relations: ["role"] });
         } catch (error) {
             throw error;
         }

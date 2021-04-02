@@ -1,3 +1,5 @@
+scalar Date
+
 type Query {
     getUsers: [User]
 }
@@ -8,8 +10,8 @@ type User {
     email: String
     passwordHash: String
     passwordSalt: String
-    createdAt: String
-    updatedAt: String
-    deletedAt: String
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Date
     role: Role
 }

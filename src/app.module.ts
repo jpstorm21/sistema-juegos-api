@@ -8,6 +8,9 @@ import { UsersModule } from './users/users.module';
 // Entities
 import { Users, Roles } from './entities';
 
+// Custom scalars
+import { DateScalar } from './utils/dateScalar';
+
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -19,6 +22,9 @@ dotenv.config();
       typePaths: ['./**/*.graphql'],
       installSubscriptionHandlers: true,
       context: ({ req }) => ({ headers: req.headers }),
+      buildSchemaOptions: {
+        dateScalarMode: 'timestamp',
+      }
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -32,7 +38,8 @@ dotenv.config();
       retryDelay: 3000,
       retryAttempts: 10,
       keepConnectionAlive: true
-    })
-  ]
+    }),
+  ],
+  providers: [DateScalar],
 })
 export class AppModule {}

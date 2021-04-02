@@ -17,13 +17,13 @@ export class Users extends BaseEntity {
     @Column({ name: 'password_salt', type: 'text', nullable: true })
     passwordSalt: string
 
-    @Column({ name: 'created_at', default: 'now', nullable: true })
+    @Column({ name: 'created_at', default: 'now', nullable: true, type: 'timestamp' })
     createdAt: Date;
 
-    @Column({ name: 'updated_at', nullable: true })
+    @Column({ name: 'updated_at', nullable: true, type: 'timestamp' })
     updatedAt: Date;
 
-    @Column({ name: 'deleted_at', nullable: true })
+    @Column({ name: 'deleted_at', nullable: true, type: 'timestamp' })
     deletedAt: Date;
 
     @Column({ name: 'role_id', type: 'uuid' })
