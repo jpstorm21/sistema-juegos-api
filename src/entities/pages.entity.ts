@@ -3,17 +3,24 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  OneToMany,
+  JoinColumn,
+  ManyToOne,
 } from 'typeorm';
-import { Users } from './users.entity';
+import { Menus } from './menus.entity';
 
 @Entity()
-export class Roles extends BaseEntity {
+export class Pages extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({ name: 'name', type: 'text', nullable: true })
   name: string;
+
+  @Column({ name: 'link', type: 'text', nullable: true })
+  link: string;
+
+  @Column({ name: 'icon', type: 'text', nullable: true })
+  icon: string;
 
   @Column({ name: 'created_at', default: 'now', nullable: true })
   createdAt: Date;
@@ -24,6 +31,8 @@ export class Roles extends BaseEntity {
   @Column({ name: 'deleted_at', nullable: true })
   deletedAt: Date;
 
-  @OneToMany(() => Users, (user) => user.role)
-  users: Users[];
+  @Column({ name: 'id_menu', type: 'uuid' })
+  @JoinColumn({ name: 'id_menu' })
+  @ManyToOne(() => Menus)
+  menu: Menus;
 }

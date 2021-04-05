@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 
 // Entities
-import { Users, Roles } from './entities';
+import { Users, Roles, Menus, Pages } from './entities';
 
 // Custom scalars
 import { DateScalar } from './utils/dateScalar';
@@ -24,7 +24,7 @@ dotenv.config();
       context: ({ req }) => ({ headers: req.headers }),
       buildSchemaOptions: {
         dateScalarMode: 'timestamp',
-      }
+      },
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -33,11 +33,11 @@ dotenv.config();
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
-      entities: [Users, Roles],
+      entities: [Users, Roles, Menus, Pages],
       synchronize: true,
       retryDelay: 3000,
       retryAttempts: 10,
-      keepConnectionAlive: true
+      keepConnectionAlive: true,
     }),
   ],
   providers: [DateScalar],

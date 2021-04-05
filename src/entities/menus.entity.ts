@@ -5,10 +5,10 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
 } from 'typeorm';
-import { Users } from './users.entity';
+import { Pages } from './pages.entity';
 
 @Entity()
-export class Roles extends BaseEntity {
+export class Menus extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -24,6 +24,6 @@ export class Roles extends BaseEntity {
   @Column({ name: 'deleted_at', nullable: true })
   deletedAt: Date;
 
-  @OneToMany(() => Users, (user) => user.role)
-  users: Users[];
+  @OneToMany(() => Pages, (page) => page.menu)
+  pages: Pages[];
 }
