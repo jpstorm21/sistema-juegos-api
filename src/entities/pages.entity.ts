@@ -5,8 +5,10 @@ import {
   PrimaryGeneratedColumn,
   JoinColumn,
   ManyToOne,
+  OneToMany
 } from 'typeorm';
 import { Menus } from './menus.entity';
+import { RolesPermission } from './rolesPermission.entity';
 
 @Entity()
 export class Pages extends BaseEntity {
@@ -35,4 +37,7 @@ export class Pages extends BaseEntity {
   @JoinColumn({ name: 'id_menu' })
   @ManyToOne(() => Menus)
   menu: Menus;
+
+  @OneToMany(() => RolesPermission, (rolesPermission) => rolesPermission.page)
+  rolesPermission: RolesPermission[];
 }

@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { Roles } from './roles.entity';
+import { UsersGames } from './usersGames.entity';
 @Entity()
 export class Users extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
@@ -26,9 +27,12 @@ export class Users extends BaseEntity {
     @Column({ name: 'deleted_at', nullable: true, type: 'timestamp' })
     deletedAt: Date;
 
-    @Column({ name: 'role_id', type: 'uuid' })
-    @JoinColumn({ name: 'role_id'})
+    @Column({ name: 'id_rol', type: 'uuid' })
+    @JoinColumn({ name: 'id_rol'})
     @ManyToOne(() => Roles)
     role: Roles;
+
+    @OneToMany(() => UsersGames, (usersGames) => usersGames.user)
+    usersGames: UsersGames[];
 
 }
