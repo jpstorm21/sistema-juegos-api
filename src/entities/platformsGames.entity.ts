@@ -19,7 +19,6 @@ export class PlatformsGames extends BaseEntity {
     @Column({ name: 'deleted_at', nullable: true })
     deletedAt: Date;
 
-
     @Column({ name: 'id_platform', type: 'uuid', primary: true })
     @JoinColumn({ name: 'id_platform' })
     @ManyToOne(() => Platforms)
