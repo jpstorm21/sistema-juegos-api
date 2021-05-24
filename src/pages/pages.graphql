@@ -1,0 +1,10 @@
+type Page {
+    id: ID!
+    name: String
+    link: String
+    icon: String
+    menu: Menu
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+}

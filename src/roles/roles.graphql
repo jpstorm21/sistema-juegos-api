@@ -1,4 +1,19 @@
+type Query {
+    getRolesPermission: [RolePermission]
+}
+
 type Role {
     id: ID!
     name: String
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+}
+
+type RolePermission {
+    page: Page!
+    role: Role!
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
 }

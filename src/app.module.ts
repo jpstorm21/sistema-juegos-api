@@ -4,9 +4,21 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 // Modules
 import { UsersModule } from './users/users.module';
+import { RolesModule } from './roles/roles.module';
 
 // Entities
-import { Users, Roles, Menus, Pages, RolesPermission, Categories, Games, UsersGames, Platforms, PlatformsGames } from './entities';
+import {
+  Users,
+  Roles,
+  Menus,
+  Pages,
+  RolesPermission,
+  Categories,
+  Games,
+  UsersGames,
+  Platforms,
+  PlatformsGames,
+} from './entities';
 
 // Custom scalars
 import { DateScalar } from './utils/dateScalar';
@@ -18,6 +30,7 @@ dotenv.config();
 @Module({
   imports: [
     UsersModule,
+    RolesModule,
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],
       installSubscriptionHandlers: true,
@@ -33,7 +46,18 @@ dotenv.config();
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
-      entities: [Users, Roles, Menus, Pages, RolesPermission, Categories, Games, UsersGames, Platforms, PlatformsGames],
+      entities: [
+        Users,
+        Roles,
+        Menus,
+        Pages,
+        RolesPermission,
+        Categories,
+        Games,
+        UsersGames,
+        Platforms,
+        PlatformsGames,
+      ],
       synchronize: true,
       retryDelay: 3000,
       retryAttempts: 10,

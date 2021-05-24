@@ -7,13 +7,45 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export class Role {
+export class Menu {
     id: string;
     name?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
+}
+
+export class Page {
+    id: string;
+    name?: string;
+    link?: string;
+    icon?: string;
+    menu?: Menu;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
 }
 
 export abstract class IQuery {
+    abstract getRolesPermission(): RolePermission[] | Promise<RolePermission[]>;
+
     abstract getUsers(): User[] | Promise<User[]>;
+}
+
+export class Role {
+    id: string;
+    name?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
+}
+
+export class RolePermission {
+    page: Page;
+    role: Role;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
 }
 
 export class User {
@@ -22,8 +54,8 @@ export class User {
     email?: string;
     passwordHash?: string;
     passwordSalt?: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-    deletedAt?: Date;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
     role?: Role;
 }

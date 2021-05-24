@@ -10,8 +10,8 @@ type User {
     email: String
     passwordHash: String
     passwordSalt: String
-    createdAt: Date
-    updatedAt: Date
-    deletedAt: Date
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
     role: Role
 }

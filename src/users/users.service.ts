@@ -14,7 +14,7 @@ export class UsersService {
 
     async getUsers(): Promise<User[]> {
         try {
-            this.logger.debug(`getting users from ${UsersService.name}`);
+            this.logger.debug(`getting users`);
             return await this.usersRepository.getUsers();
         } catch (error) {
             throw new CustomError(400, 'Ocurrio un error');
