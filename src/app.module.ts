@@ -3,8 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 // Modules
-import { UsersModule } from './users/users.module';
-import { RolesModule } from './roles/roles.module';
+import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
 
 // Entities
 import {

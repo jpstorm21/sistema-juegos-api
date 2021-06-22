@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RolesPermissionRepository } from '../respository/rolesPermission.repository';
-import { RolePermission } from '../graphql.schema';
-import CustomError from '../utils/error';
+import { RolesPermissionRepository } from '../../respository/rolesPermission.repository';
+import { RolePermission } from '../../graphql.schema';
+import CustomError from '../../utils/error';
 
 @Injectable()
 export class RolesService {

@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UsersRepository } from '../respository/users.repository';
-import { User } from '../graphql.schema';
-import CustomError from '../utils/error';
+import { UsersRepository } from '../../respository/users.repository';
+import { User } from '../../graphql.schema';
+import CustomError from '../../utils/error';
 
 @Injectable()
 export class UsersService {

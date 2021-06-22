@@ -1,5 +1,5 @@
 import { Resolver, Query } from '@nestjs/graphql';
-import { RolePermission } from '../graphql.schema';
+import { RolePermission } from '../../graphql.schema';
 import { RolesService } from './roles.service';
 
 @Resolver('Roles')
