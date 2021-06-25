@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UsersRepository } from '../../respository/users.repository';
 import { User } from '../../graphql.schema';
-import CustomError from '../../utils/error';
 
 @Injectable()
 export class UsersService {
@@ -17,7 +16,7 @@ export class UsersService {
             this.logger.debug(`getting users`);
             return await this.usersRepository.getUsers();
         } catch (error) {
-            throw new CustomError(400, 'Ocurrio un error');
+            throw error;
         }
     }
 }

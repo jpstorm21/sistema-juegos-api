@@ -7,6 +7,20 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export class InputLogin {
+    email: string;
+    password: string;
+}
+
+export abstract class IMutation {
+    abstract login(input: InputLogin): LoginResponse | Promise<LoginResponse>;
+}
+
+export class LoginResponse {
+    token: string;
+    user: User;
+}
+
 export class Menu {
     id: string;
     name?: string;

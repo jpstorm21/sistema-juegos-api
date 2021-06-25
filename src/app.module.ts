@@ -20,9 +20,6 @@ import {
   PlatformsGames,
 } from './entities';
 
-// Custom scalars
-import { DateScalar } from './utils/dateScalar';
-
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -64,6 +61,6 @@ dotenv.config();
       keepConnectionAlive: true,
     }),
   ],
-  providers: [DateScalar],
+  providers: [],
 })
 export class AppModule {}

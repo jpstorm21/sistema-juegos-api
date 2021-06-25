@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RolesPermissionRepository } from '../../respository/rolesPermission.repository';
 import { RolePermission } from '../../graphql.schema';
-import CustomError from '../../utils/error';
 
 @Injectable()
 export class RolesService {
@@ -17,7 +16,7 @@ export class RolesService {
             this.logger.debug(`getting roles and permission`);
             return await this.rolesPermissionRepository.getRolesPerssions();
         } catch (error) {
-            throw new CustomError(400, 'Ocurrio un error');
+            throw error;
         }
     }
 }
