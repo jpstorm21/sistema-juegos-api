@@ -5,10 +5,7 @@ import { RolesResolver } from './roles.resolver';
 import { RolesService } from './roles.service';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([RolesPermissionRepository])
-    ],
-    providers: [RolesService, RolesResolver]
+  imports: [TypeOrmModule.forFeature([RolesPermissionRepository])],
+  providers: [RolesService, RolesResolver],
 })
-
-export class RolesModule {};
+export class RolesModule {}

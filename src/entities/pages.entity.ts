@@ -5,7 +5,7 @@ import {
   PrimaryGeneratedColumn,
   JoinColumn,
   ManyToOne,
-  OneToMany
+  OneToMany,
 } from 'typeorm';
 import { Menus } from './menus.entity';
 import { RolesPermission } from './rolesPermission.entity';

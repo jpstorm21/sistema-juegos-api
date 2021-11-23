@@ -6,10 +6,9 @@ import { UsersResolver } from './users.resolver';
 import { UsersService } from './users.service';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([UsersRepository, RolesPermissionRepository])
-    ],
-    providers: [UsersService, UsersResolver]
+  imports: [
+    TypeOrmModule.forFeature([UsersRepository, RolesPermissionRepository]),
+  ],
+  providers: [UsersService, UsersResolver],
 })
-
-export class UsersModule {};
+export class UsersModule {}

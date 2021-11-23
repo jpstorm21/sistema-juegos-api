@@ -5,11 +5,11 @@ import { Users } from '../entities/users.entity';
 @Injectable()
 @EntityRepository(Users)
 export class UsersRepository extends Repository<Users> {
-    public async getUsers(): Promise<any[]> {
-        try {
-            return this.find({ relations: ["role"] });
-        } catch (error) {
-            throw error;
-        }
+  public async getUsers(): Promise<any[]> {
+    try {
+      return this.find({ relations: ['role'] });
+    } catch (error) {
+      throw error;
     }
+  }
 }

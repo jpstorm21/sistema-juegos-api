@@ -5,22 +5,22 @@ import { JwtService } from '@nestjs/jwt';
 
 @Resolver('Users')
 export class AuthResolver {
-    constructor(
-        private readonly authService: AuthService,
-        private jwtService: JwtService,
-    ) {}
+  constructor(
+    private readonly authService: AuthService,
+    private jwtService: JwtService,
+  ) {}
 
-    @Mutation('login')
-    async login(@Args('input') args: InputLogin): Promise<LoginResponse> {
-        const user = await this.authService.login(args);
+  @Mutation('login')
+  async login(@Args('input') args: InputLogin): Promise<LoginResponse> {
+    const user = await this.authService.login(args);
 
-        const token = this.jwtService.sign({user});
+    const token = this.jwtService.sign({ user });
 
-        const response: LoginResponse = {
-            token,
-            user,
-        };
+    const response: LoginResponse = {
+      token,
+      user,
+    };
 
-        return response;
-    }
+    return response;
+  }
 }

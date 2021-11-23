@@ -4,12 +4,10 @@ import { RolesService } from './roles.service';
 
 @Resolver('Roles')
 export class RolesResolver {
-    constructor(
-        private readonly rolesService: RolesService
-    ) {}
+  constructor(private readonly rolesService: RolesService) {}
 
-    @Query('getRolesPermission')
-    async getRolesPermission(): Promise<RolePermission[]> {
-        return await this.rolesService.getRolesPermission();
-    }
+  @Query('getRolesPermission')
+  async getRolesPermission(): Promise<RolePermission[]> {
+    return await this.rolesService.getRolesPermission();
+  }
 }
